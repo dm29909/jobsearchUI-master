@@ -1,0 +1,58 @@
+<div *ngIf="showUsersTable" class="border rounded p-3 bg-light">
+  <h4 class="text-dark">{{ editingUser? 'Edit Mode' : 'Users Table' }}</h4>
+  <table class="table" >
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editUser(user)">Edit</button>
+          <button class="btn btn-danger" style="margin-left: 10px;" (click)="deleteUser(user)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add New User Form -->
+  <h4 class="text-dark">{{ editingUser ? 'Edit Job' : 'Add New User' }}</h4>
+  <form *ngIf="!editingUser" (submit)="addUser()">
+    <div class="form-group">
+      <label class="text-dark">Username:</label>
+      <input class="form-control" type="text" [(ngModel)]="newUser.username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark" >Email:</label>
+      <input class="form-control" type="email" [(ngModel)]="newUser.email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Password:</label>
+      <input class="form-control" type="password" [(ngModel)]="newUser.password" name="password" required>
+    </div>
+    <button class="btn btn-success mt-4" type="submit">Add User</button>
+  </form>
+  <!-- <form *ngIf="editingUser" (ngSubmit)="updateUser()">
+    <div class="form-group">
+      <label class="text-dark">Username:</label>
+      <input class="form-control" type="text" [(ngModel)]="selectedUser.username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark" >Email:</label>
+      <input class="form-control" type="email" [(ngModel)]="selectedUser.email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Password:</label>
+      <input class="form-control" type="password" [(ngModel)]="selectedUser.password" name="password" required>
+    </div>
+    <button class="btn btn-primary mt-4" type="submit">Update User</button>
+    <button class="btn btn-secondary mt-4 " style="margin-left: 10px;" (click)="cancelEdit()">Cancel</button>
+  </form> -->
+</div>

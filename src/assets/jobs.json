@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "title": "Software Engineer",
+      "company": "ABC Inc.",
+      "location": "New York",
+      "posted": "2022-10-15",
+      "opened": true
+    },
+    {
+      "id": 2,
+      "title": "Data Analyst",
+      "company": "XYZ Corp.",
+      "location": "San Francisco",
+      "posted": "2022-11-01",
+      "opened": false
+    },
+    {
+      "id": 3,
+      "title": "Product Manager",
+      "company": "123 Co.",
+      "location": "London",
+      "posted": "2022-12-05",
+      "opened": true
+    },
+    {
+      "id": 4,
+      "title": "Graphic Designer",
+      "company": "Design Studio",
+      "location": "Paris",
+      "posted": "2022-09-20",
+      "opened": true
+    },
+    {
+      "id": 5,
+      "title": "Marketing Specialist",
+      "company": "Marketing Agency",
+      "location": "Chicago",
+      "posted": "2022-11-10",
+      "opened": false
+    },
+    {
+      "id": 6,
+      "title": "Sales Representative",
+      "company": "Sales Company",
+      "location": "Tokyo",
+      "posted": "2022-12-01",
+      "opened": true
+    },
+    {
+      "id": 7,
+      "title": "Accountant",
+      "company": "Financial Services",
+      "location": "Sydney",
+      "posted": "2022-10-25",
+      "opened": true
+    },
+    {
+      "id": 8,
+      "title": "Project Manager",
+      "company": "Tech Solutions",
+      "location": "Berlin",
+      "posted": "2022-11-15",
+      "opened": false
+    },
+    {
+      "id": 9,
+      "title": "HR Specialist",
+      "company": "HR Consulting",
+      "location": "Toronto",
+      "posted": "2022-12-10",
+      "opened": true
+    },
+    {
+      "id": 10,
+      "title": "Customer Support Representative",
+      "company": "E-commerce Company",
+      "location": "Los Angeles",
+      "posted": "2022-10-30",
+      "opened": true
+    }
+  ]
+  

@@ -1,0 +1,53 @@
+<header>
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true" />
+    <div class="signup">
+      <form data-testid="signup-form">
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <input
+          type="text"
+          name="txt"
+          placeholder="User name"
+          [(ngModel)]="signupObj.userName"
+          data-testid="signup-username-input"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="signupObj.email"
+          data-testid="signup-email-input"
+        />
+        <input
+          type="password"
+          name="pswd"
+          placeholder="Password"
+          [(ngModel)]="signupObj.password"
+          data-testid="signup-password-input"
+        />
+        <button (click)="onSignup()" data-testid="signup-button">Sign up</button>
+      </form>
+    </div>
+
+    <div class="login">
+      <form data-testid="login-form">
+        <label for="chk" aria-hidden="true">Login</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="loginObj.userName"
+          data-testid="login-email-input"
+        />
+        <input
+          type="password"
+          name="pswd"
+          placeholder="Password"
+          [(ngModel)]="loginObj.password"
+          data-testid="login-password-input"
+        />
+        <button (click)="onLogin()" data-testid="login-button">Login</button>
+      </form>
+    </div>
+  </div>
+</header>

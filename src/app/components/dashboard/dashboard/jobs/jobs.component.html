@@ -1,0 +1,79 @@
+<div *ngIf="showJobsTable" class="border rounded p-3 bg-light">
+  <h4 class="text-dark">{{ editingJob ? 'Edit Mode' : 'Jobs Table' }}</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Posted</th>
+        <th>Opened</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobs">
+        <td>{{ job.title }}</td>
+        <td>{{ job.company }}</td>
+        <td>{{ job.location }}</td>
+        <td>{{ job.posted }}</td>
+        <td>{{ job.opened }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="editJob(job)">Edit</button>
+          <button class="btn btn-danger" style="margin-left: 10px;" (click)="deleteJob(job)">Delete</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4 class="text-dark">{{ editingJob ? 'Edit Job' : 'Add New Job' }}</h4>
+  <form *ngIf="!editingJob" (ngSubmit)="addJob(jobForm)">
+    <div class="form-group">
+      <label class="text-dark">Title:</label>
+      <input class="form-control" type="text" [(ngModel)]="jobForm.title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Company:</label>
+      <input class="form-control" type="text" [(ngModel)]="jobForm.company" name="company" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Location:</label>
+      <input class="form-control" type="text" [(ngModel)]="jobForm.location" name="location" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Posted:</label>
+      <input class="form-control" type="date" [(ngModel)]="jobForm.posted" name="posted" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark p-1">Opened:</label>
+      <input type="checkbox" [(ngModel)]="jobForm.opened" name="opened">
+    </div>
+    <button class="btn btn-success mt-4" type="submit">Add Job</button>
+  </form>
+  <form *ngIf="editingJob && selectedJob" (submit)="updateJob()">
+    <div class="form-group">
+      <label class="text-dark">Title:</label>
+      <input class="form-control" type="text" [(ngModel)]="selectedJob.title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Company:</label>
+      <input class="form-control" type="text" [(ngModel)]="selectedJob.company" name="company" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Location:</label>
+      <input class="form-control" type="text" [(ngModel)]="selectedJob.location" name="location" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark">Posted:</label>
+      <input class="form-control" type="date" [(ngModel)]="selectedJob.posted" name="posted" required>
+    </div>
+    <div class="form-group">
+      <label class="text-dark p-1">Opened:</label>
+      <input type="checkbox" [(ngModel)]="selectedJob.opened" name="opened">
+    </div>
+    <button class="btn btn-primary" type="submit">Update Job</button>
+    <button class="btn btn-secondary" style="margin-left: 10px;" (click)="cancelJob()">Cancel</button>
+  </form>
+  
+</div>

@@ -1,0 +1,130 @@
+<body>
+  <div id="app">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand text-dark" href="/admin">My App</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-between"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <!-- Add any additional top navbar items here -->
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-dark" type="submit">
+                Search
+              </button>
+            </form>
+            <div class="profile">
+              <img
+                src="../../../../assets/avatar.png"
+                alt="Profile Picture"
+                class="rounded-circle"
+                style="width: 45px"
+              />
+
+              <span class="profile-name text-dark px-3 lead">{{
+                loggedInUserName
+              }}</span>
+              <button class="btn btn-outline-dark" data-testid=logout-button (click)="onLogout()">
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="navbar-purple col-md-2 bg-success vh-100" *ngIf="isAdmin">
+            <div class="sidebar nav flex-column nav-pills h-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a routerLink="/admin/users" routerLinkActive="active" class="nav-link text-light" (click)="showUsers()">Users</a>
+              <a routerLink="/admin/admins" routerLinkActive="active" class="nav-link text-light" (click)="showAdmins()">Admins</a>
+              <a routerLink="/admin/jobs" routerLinkActive="active" class="nav-link text-light " (click)="showJobs()">Jobs</a>
+              <!-- Add any additional sidebar links here -->
+            </div>            
+          </div>
+          <div class="col-md-10">
+            <div class="container mt-4">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card bg-danger">
+                    <div class="card-body text-light">
+                      <h5 class="card-title">Total Jobs</h5>
+                      <p class="card-text">500</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card bg-info">
+                    <div class="card-body text-light">
+                      <h5 class="card-title">Jobs Created</h5>
+                      <p class="card-text">250</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card  bg-warning">
+                    <div class="card-body text-light">
+                      <h5 class="card-title">Jobs Opened</h5>
+                      <p class="card-text">200</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="container mt-4">
+                  <app-users-table *ngIf="showUsersTable"></app-users-table>
+                  <app-admins *ngIf="showAdminsTable"></app-admins>
+                  <app-jobs *ngIf="showJobsTable"></app-jobs>
+              </div>
+              <div class="container mt-4">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Company</th>
+                      <th>Location</th>
+                      <th>Posted</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let job of jobsData | async">
+                      <td>{{ job.title }}</td>
+                      <td>{{ job.company }}</td>
+                      <td>{{ job.location }}</td>
+                      <td>{{ job.posted }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-light text-center text-dark py-3">
+      <p>&copy; 2023 Job Finder. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
